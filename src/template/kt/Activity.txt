@@ -1,0 +1,13 @@
+package &package&.activity
+
+import &mvp&.MVPBaseActivity
+import &package&.contract.&Contract&
+import &package&.presenter.&Presenter&
+
+/**
+ * @author songdehuai
+ */
+
+class &Activity& : MVPBaseActivity<&Contract&.View, &Presenter&>(), &Contract&.View {
+
+}

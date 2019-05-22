@@ -1,0 +1,20 @@
+package &package&;
+
+import android.content.Context;
+
+import &mvp&.BasePresenter;
+import &mvp&.BaseView;
+
+/**
+ * @author songdehuai
+ */
+
+public class &Contract& {
+    interface View extends BaseView {
+        
+    }
+
+    interface  Presenter extends BasePresenter<View> {
+        
+    }
+}

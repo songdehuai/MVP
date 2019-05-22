@@ -1,0 +1,12 @@
+package &package&.presenter
+
+import &mvp&.BasePresenterImpl;
+import &package&.contract.&Contract&
+
+/**
+ * @author songdehuai
+ */
+
+class &Presenter& : BasePresenterImpl<&Contract&.View>(), &Contract&.Presenter{
+
+}

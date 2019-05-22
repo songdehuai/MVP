@@ -1,0 +1,12 @@
+package &package&;
+
+
+import &mvp&.MVPBaseFragment;
+
+/**
+ * @author songdehuai
+ */
+
+public class &Fragment& extends MVPBaseFragment<&Contract&.View, &Presenter&> implements &Contract&.View {
+
+}

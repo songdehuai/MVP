@@ -1,0 +1,20 @@
+package &package&.contract
+
+import &mvp&.BasePresenter
+import &mvp&.BaseView
+
+
+/**
+ * @author songdehuai
+ */
+
+class &Contract& {
+
+    interface View : BaseView {
+
+    }
+
+    interface Presenter : BasePresenter<View> {
+
+    }
+}

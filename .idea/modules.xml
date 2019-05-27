@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Mvp.iml" filepath="$PROJECT_DIR$/Mvp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MVPCreater.iml" filepath="$PROJECT_DIR$/MVPCreater.iml" />
     </modules>
   </component>
 </project>

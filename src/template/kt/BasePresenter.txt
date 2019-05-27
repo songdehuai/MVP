@@ -3,9 +3,10 @@ package &package&;
 /**
  * @author songdehuai
  */
+interface BasePresenter<V : BaseView> {
+   fun attachView(view: V)
 
-public interface  BasePresenter <V extends BaseView>{
-    void attachView(V view);
+    fun detachView()
 
-    void detachView();
+    fun cancelAllTask()
 }

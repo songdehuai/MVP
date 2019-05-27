@@ -7,7 +7,6 @@ import &mvp&.BaseView
 /**
  * @author songdehuai
  */
-
 class &Contract& {
 
     interface View : BaseView {

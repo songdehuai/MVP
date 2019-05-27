@@ -1,6 +1,8 @@
 package template;
 
-import java.io.File;
+import com.intellij.openapi.vfs.VirtualFile;
+
+import java.io.*;
 import java.util.LinkedList;
 
 /**
@@ -9,6 +11,86 @@ import java.util.LinkedList;
  * Time 17/2/24.
  */
 public class FileUtil {
+
+    public static String checkFilePath(VirtualFile selectGroup, String path, String typeName) {
+        //判断contract文件夹是否存在
+        String pack = selectGroup.getPath() + "/" + typeName;
+        File file = new File(pack);
+        if (judeDirExists(file)) {
+            path = pack;
+        }
+        return path;
+    }
+
+    // 判断文件夹是否存在
+    public static boolean judeDirExists(File file) {
+        boolean isExists = false;
+        if (file.exists()) {
+            if (file.isDirectory()) {
+                System.out.println("dir exists");
+                isExists = true;
+            } else {
+                System.out.println("the same name file exists, can not create dir");
+                isExists = false;
+            }
+        }
+        return isExists;
+    }
+
+    public static String readFile(Class clas, boolean isKotlin, String filename) {
+        String name = "code/" + filename;
+        if (isKotlin) {
+            name = "kt/" + filename;
+        }
+        InputStream in = null;
+        in = clas.getResourceAsStream(name);
+        String content = "";
+        try {
+            content = new String(readStream(in));
+        } catch (Exception e) {
+        }
+        return content;
+    }
+
+    public static void writetoFile(String content, String filepath, String filename) {
+        try {
+            File floder = new File(filepath);
+            // if file doesnt exists, then create it
+            if (!floder.exists()) {
+                floder.mkdirs();
+            }
+            File file = new File(filepath + "/" + filename);
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(content);
+            bw.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static byte[] readStream(InputStream inStream) throws Exception {
+        ByteArrayOutputStream outSteam = new ByteArrayOutputStream();
+        try {
+            byte[] buffer = new byte[1024];
+            int len = -1;
+            while ((len = inStream.read(buffer)) != -1) {
+                outSteam.write(buffer, 0, len);
+            }
+
+        } catch (IOException e) {
+        } finally {
+            outSteam.close();
+            inStream.close();
+        }
+        return outSteam.toByteArray();
+    }
+
     public static String traverseFolder(String path) {
         File file = new File(path);
         if (file.exists()) {

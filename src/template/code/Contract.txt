@@ -10,6 +10,7 @@ import &mvp&.BaseView;
  */
 
 public class &Contract& {
+
     interface View extends BaseView {
         
     }

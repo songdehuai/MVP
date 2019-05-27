@@ -1,11 +1,9 @@
 package &package&;
 
-import android.content.Context;
-
 /**
  * @author songdehuai
  */
 
-public interface BaseView {
-     Context getContext();
+interface BaseView {
+
 }

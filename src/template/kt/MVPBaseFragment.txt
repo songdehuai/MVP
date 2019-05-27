@@ -1,51 +1,43 @@
 package &package&;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import android.content.Context
+import android.os.Bundle
+import java.lang.reflect.ParameterizedType
+import androidx.fragment.app.Fragment
 
-import java.lang.reflect.ParameterizedType;
 
-/**
- * @author songdehuai
- */
+open class MVPBaseFragment<V : BaseView, T : BasePresenterImpl<V>> : Fragment(), BaseView {
+    var mPresenter: T? = null
 
-public abstract class MVPBaseFragment<V extends BaseView,T extends BasePresenterImpl<V>> extends Fragment implements BaseView{
-    public T mPresenter;
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mPresenter= getInstance(this,1);
-        mPresenter.attachView((V) this);
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        mPresenter = getInstance<T>(this, 1)
+        mPresenter!!.attachView(this as V)
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (mPresenter!=null)
-            mPresenter.detachView();
+    override fun onDestroy() {
+        super.onDestroy()
+        if (mPresenter != null)
+            mPresenter!!.detachView()
     }
 
-    @Override
-    public Context getContext() {
-        return super.getContext();
+    override fun getContext(): Context? {
+        return super.getContext()
     }
 
-    public  <T> T getInstance(Object o, int i) {
-            try {
-                return ((Class<T>) ((ParameterizedType) (o.getClass()
-                        .getGenericSuperclass())).getActualTypeArguments()[i])
-                        .newInstance();
-            } catch (InstantiationException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (ClassCastException e) {
-                e.printStackTrace();
-            } catch (java.lang.InstantiationException e) {
-                e.printStackTrace();
-            }
-            return null;
+    fun <T> getInstance(o: Any, i: Int): T? {
+        try {
+            return ((o.javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[i] as Class<T>).newInstance()
+        } catch (e: Fragment.InstantiationException) {
+            e.printStackTrace()
+        } catch (e: IllegalAccessException) {
+            e.printStackTrace()
+        } catch (e: ClassCastException) {
+            e.printStackTrace()
+        } catch (e: java.lang.InstantiationException) {
+            e.printStackTrace()
         }
+
+        return null
+    }
 }

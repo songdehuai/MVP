@@ -1,13 +1,10 @@
 <idea-plugin>
     <id>com.songdehuai.mvp</id>
-    <name>MVPPlugin</name>
-    <version>1.4</version>
+    <name>MVPCreater</name>
+    <version>1.0</version>
     <vendor email="songdehuai@outlook.com" url="https://kotlin.fun">songdehuai</vendor>
 
-    <description><![CDATA[
-      This is a can help developers to quickly generate the MVP template plug-ins<br>
-      <em>What's the problem can be feedback on my email</em>
-    ]]></description>
+    <description>MVP生成器</description>
 
     <idea-version since-build="131"/>
 
@@ -19,7 +16,7 @@
 
     <actions>
         <!-- Add your actions here -->
-        <action id="mvp" class="template.AndroidMvpAction" text="MvpFile"
+        <action id="mvp" class="template.AndroidMvpAction" text="MVPCreater"
                 description="Help you to quickly generate a template">
             <add-to-group group-id="NewGroup" anchor="last"/>
         </action>

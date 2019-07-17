@@ -1,0 +1,13 @@
+package &package&.fragment
+
+
+import &mvp&.MVPBaseFragment;
+
+
+/**
+ * MVPPlugin
+ */
+
+class &Fragment& : MVPBaseFragment<&Contract&.View, &Presenter&>(), &Contract&.View{
+
+}

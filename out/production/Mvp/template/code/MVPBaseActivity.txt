@@ -28,6 +28,11 @@ public abstract class MVPBaseActivity<V extends BaseView,T extends BasePresenter
         mPresenter.detachView();
     }
 
+    @Override
+    public Context getContext(){
+        return this;
+    }
+
     public  <T> T getInstance(Object o, int i) {
         try {
             return ((Class<T>) ((ParameterizedType) (o.getClass()

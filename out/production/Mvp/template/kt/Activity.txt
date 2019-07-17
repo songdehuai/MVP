@@ -1,4 +1,4 @@
-package &package&
+package &package&.activity
 
 import &mvp&.MVPBaseActivity
 import &package&.contract.&Contract&

@@ -1,0 +1,13 @@
+package &package&;
+
+
+import &mvp&.MVPBaseActivity;
+
+
+/**
+ * @author songdehuai
+ */
+
+public class &Activity& extends MVPBaseActivity<&Contract&.View, &Presenter&> implements &Contract&.View {
+
+}

@@ -1,0 +1,9 @@
+package &package&;
+
+/**
+ * @author songdehuai
+ */
+
+interface BaseView {
+
+}

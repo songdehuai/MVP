@@ -3,6 +3,7 @@ package template;
 import com.intellij.openapi.vfs.VirtualFile;
 
 import java.io.*;
+import java.nio.file.Path;
 import java.util.LinkedList;
 
 /**
@@ -12,18 +13,12 @@ import java.util.LinkedList;
  */
 public class FileUtil {
 
-    public static String checkFilePath(VirtualFile selectGroup, String path, String typeName) {
-        //判断contract文件夹是否存在
-        String pack = selectGroup.getPath() + "/" + typeName;
-        File file = new File(pack);
-        if (judeDirExists(file)) {
-            path = pack;
-        }
-        return path;
+    public static boolean pathDirExists(String path) {
+        return pathDirExists(new File(path));
     }
 
     // 判断文件夹是否存在
-    public static boolean judeDirExists(File file) {
+    public static boolean pathDirExists(File file) {
         boolean isExists = false;
         if (file.exists()) {
             if (file.isDirectory()) {

@@ -16,7 +16,7 @@
 
     <actions>
         <!-- Add your actions here -->
-        <action id="mvp" class="template.AndroidMVPCreateAction" text="MVPCreater"
+        <action id="mvp" class="template.AndroidMvpAction" text="MVPCreater"
                 description="Help you to quickly generate a template">
             <add-to-group group-id="NewGroup" anchor="last"/>
         </action>
